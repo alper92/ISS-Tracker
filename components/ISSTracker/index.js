@@ -6,6 +6,11 @@ import useSWR from "swr";
 const URL = "https://api.wheretheiss.at/v1/satellites/25544";
 
 export default function ISSTracker() {
+  const [coords, setCoords] = useState({
+    longitude: 0,
+    latitude: 0,
+  });
+
   const { data, isLoading, error } = useSWR(URL);
   console.log(data);
 
