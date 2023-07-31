@@ -1,8 +1,8 @@
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
 
-const fetcher = async (url) => {
-  const response = await fetch(url);
+const fetcher = async (URL) => {
+  const response = await fetch(URL);
 
   // If the status code is not in the range 200-299,
   // we still try to parse and throw it.
@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <SWRConfig value={{ fetcher, refreshInterval: 1000 }}>
+      <SWRConfig value={{ fetcher }}>
         <Component {...pageProps} />
       </SWRConfig>
     </>

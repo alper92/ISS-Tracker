@@ -5,8 +5,10 @@ import useSWR from "swr";
 
 const URL = "https://api.wheretheiss.at/v1/satellites/25544";
 
-export default function ISSTracker({ fetcher }) {
-  const { data, isLoading, error, mutate } = useSWR(URL, fetcher);
+export default function ISSTracker() {
+  const { data, isLoading, error, mutate } = useSWR(URL, {
+    refreshInterval: 5000,
+  });
 
   if (isLoading) {
     return <h1>Loading data...</h1>;
